@@ -5,7 +5,8 @@ import Foundation
 /// `-PinePodsDemo`; optionally `-PinePodsDemoScreen <home|feed|library|downloads|search|player|settings>`.
 /// `-PinePodsDemoMedia <url>` points every episode at a real audio file and
 /// signs in with a stand-in session so playback and downloads run; API calls
-/// then fail harmlessly against that host.
+/// then fail harmlessly against that host. `-PinePodsDemoArtwork <base-url>`
+/// loads show artwork from `<base-url>/<seed>.png` instead of picsum.photos.
 enum DemoMode {
     static var isActive: Bool {
         ProcessInfo.processInfo.arguments.contains("-PinePodsDemo")
@@ -13,6 +14,10 @@ enum DemoMode {
 
     private static var screen: String? {
         UserDefaults.standard.string(forKey: "PinePodsDemoScreen")
+    }
+
+    private static var artworkBase: String? {
+        UserDefaults.standard.string(forKey: "PinePodsDemoArtwork")
     }
 
     private static var mediaURL: URL? {
@@ -146,7 +151,8 @@ enum DemoMode {
     ) -> [String: Any] {
         [
             "podcastid": id, "podcastname": name, "author": author, "episodecount": count,
-            "is_favorite": favorite, "artworkurl": "https://picsum.photos/seed/pinepods-\(seed)/600",
+            "is_favorite": favorite,
+            "artworkurl": artworkBase.map { "\($0)/\(seed).png" } ?? "https://picsum.photos/seed/pinepods-\(seed)/600",
             "description": "\(name) is a weekly show from \(author) about the ideas, people, and places shaping the world — told slowly and carefully.",
             "categories": "Society, Technology",
         ]
