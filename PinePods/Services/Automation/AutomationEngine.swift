@@ -131,10 +131,12 @@ final class AutomationEngine {
         guard rules.anyEnabled else { return }
         let request = BGAppRefreshTaskRequest(identifier: Self.backgroundTaskIdentifier)
         request.earliestBeginDate = Date(timeIntervalSinceNow: Double(rules.intervalHours) * 3600)
-        do {
-            try BGTaskScheduler.shared.submit(request)
-        } catch {
-            NSLog("[PinePods] automation: background refresh not scheduled: %@", error.localizedDescription)
+        Task {
+            do {
+                try await BGTaskScheduler.shared.submitTaskRequest(request)
+            } catch {
+                NSLog("[PinePods] automation: background refresh not scheduled: %@", error.localizedDescription)
+            }
         }
     }
 
