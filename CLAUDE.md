@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-**Kural** (குரல், "voice"): an unofficial native SwiftUI iOS client for self-hosted [PinePods](https://github.com/madeofpendletonwool/PinePods) podcast servers. It is a port of the upstream Flutter client, and much of its behavior is written to match that client. Only the display name, icon and UI copy say "Kural"; the Xcode target, scheme, bundle ID (`me.4vr.pinepods`) and log prefix still say PinePods. User-facing text mentions PinePods only to name the server it connects to.
+**Kural** (குரல், "voice"): an unofficial native SwiftUI iOS client for self-hosted [PinePods](https://github.com/madeofpendletonwool/PinePods) podcast servers. It is a port of the upstream Flutter client, and much of its behavior is written to match that client. Bundle IDs use the `me.4vr.kural` prefix, and the App Group is `group.me.4vr.kural`. The Xcode project, app target, scheme and log prefix are still named PinePods. User-facing text mentions PinePods only to name the server it connects to.
 
 ## Commands
 
@@ -34,7 +34,7 @@ Source groups are `fileSystemSynchronizedGroups`: new `.swift` files are picked 
 | `KuralWatchWidgets` (watch complications, embedded in the watch app) | `KuralWatchWidgets/`, `Shared/` | `Info.plist` and `PlaybackIntents.swift` are excluded |
 | `PinePodsTests` | `PinePodsTests/` | Hosted in the app |
 
-All four app and extension targets carry the App Group `group.me.4vr.pinepods` (`Entitlements/`). The project file is hand-authored with readable `AA…` object IDs; to add a target, follow the existing entries.
+All four app and extension targets carry the App Group `group.me.4vr.kural` (`Entitlements/`). The project file is hand-authored with readable `AA…` object IDs; to add a target, follow the existing entries.
 
 ## Upstream reference
 
@@ -97,7 +97,7 @@ Stores reach each other through `.shared` (e.g. `LibraryStore` reads `SessionSto
 **Demo mode (DEBUG only)** — to work on the UI without a server, launch with `-PinePodsDemo`. It fills the stores with sample data from `Debug/DemoMode.swift`. Add `-PinePodsDemoScreen <home|feed|library|downloads|search|player|settings>` to open a specific screen. With `-PinePodsDemoMedia <url>`, every episode points at that audio file and a stand-in session is signed in, so playback, downloads and queue advancing really run; API calls fail harmlessly against that host. For example:
 
 ```sh
-xcrun simctl launch <udid> me.4vr.pinepods -PinePodsDemo -PinePodsDemoScreen player
+xcrun simctl launch <udid> me.4vr.kural -PinePodsDemo -PinePodsDemoScreen player
 xcrun simctl io <udid> screenshot out.png
 ```
 

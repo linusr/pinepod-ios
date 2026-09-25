@@ -17,7 +17,7 @@ struct LocalDownload: Codable, Identifiable, Sendable {
 final class DownloadManager {
     static let shared = DownloadManager()
 
-    nonisolated static let sessionIdentifier = "me.4vr.pinepods.downloads"
+    nonisolated static let sessionIdentifier = "me.4vr.kural.downloads"
     nonisolated static let mediaDirectory: URL = {
         let url = LocalFiles.directory.appending(path: "Media", directoryHint: .isDirectory)
         try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)

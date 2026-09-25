@@ -4,7 +4,7 @@ import Security
 /// Generic-password storage for secrets. Items stay readable after first
 /// unlock so background refresh can reach the server.
 enum Keychain {
-    private static let service = "me.4vr.pinepods"
+    private static let service = "me.4vr.kural"
 
     static func string(for account: String) -> String? {
         let query: [String: Any] = [

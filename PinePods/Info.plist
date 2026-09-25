@@ -4,13 +4,13 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>me.4vr.pinepods.automation</string>
+		<string>me.4vr.kural.automation</string>
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>me.4vr.pinepods</string>
+			<string>me.4vr.kural</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kural</string>

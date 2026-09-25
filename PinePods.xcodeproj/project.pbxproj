@@ -619,7 +619,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -651,7 +651,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -673,7 +673,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 6.0;
@@ -692,7 +692,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 6.0;
@@ -718,7 +718,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -744,7 +744,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -772,13 +772,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Entitlements/KuralWatch.entitlements;
 				INFOPLIST_KEY_WKApplication = YES;
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.4vr.pinepods;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.4vr.kural;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural.watchkitapp;
 			};
 			name = Debug;
 		};
@@ -801,13 +801,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Entitlements/KuralWatch.entitlements;
 				INFOPLIST_KEY_WKApplication = YES;
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.4vr.pinepods;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.4vr.kural;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural.watchkitapp;
 			};
 			name = Release;
 		};
@@ -834,7 +834,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.watchkitapp.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural.watchkitapp.widgets;
 			};
 			name = Debug;
 		};
@@ -861,7 +861,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.watchkitapp.widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.kural.watchkitapp.widgets;
 			};
 			name = Release;
 		};

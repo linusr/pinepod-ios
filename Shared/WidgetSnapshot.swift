@@ -32,7 +32,7 @@ struct WidgetSnapshot: Codable, Sendable {
 }
 
 enum SharedContainer {
-    static let appGroup = "group.me.4vr.pinepods"
+    static let appGroup = "group.me.4vr.kural"
     static let widgetKind = "KuralNowPlaying"
 
     static var url: URL? {

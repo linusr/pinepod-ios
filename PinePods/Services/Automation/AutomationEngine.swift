@@ -35,7 +35,7 @@ struct AutomationRun: Codable, Identifiable, Sendable {
 final class AutomationEngine {
     static let shared = AutomationEngine()
 
-    nonisolated static let backgroundTaskIdentifier = "me.4vr.pinepods.automation"
+    nonisolated static let backgroundTaskIdentifier = "me.4vr.kural.automation"
 
     private struct State: Codable {
         var lastRun: Date?
