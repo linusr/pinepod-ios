@@ -30,9 +30,11 @@ Source groups are `fileSystemSynchronizedGroups`: new `.swift` files are picked 
 |---|---|---|
 | `PinePods` (the app) | `PinePods/`, `Shared/` | Built with the `KURAL_APP` compilation condition |
 | `KuralWidgets` (WidgetKit extension, embedded in the app) | `KuralWidgets/`, `Shared/` | `Info.plist` is excluded from its sources |
+| `KuralWatch` (watchOS app, embedded in the iPhone app) | `KuralWatch/`, `Shared/` | A remote for the iPhone app; `Shared/PlaybackIntents.swift` is excluded |
+| `KuralWatchWidgets` (watch complications, embedded in the watch app) | `KuralWatchWidgets/`, `Shared/` | `Info.plist` and `PlaybackIntents.swift` are excluded |
 | `PinePodsTests` | `PinePodsTests/` | Hosted in the app |
 
-Both the app and the widget carry the App Group `group.me.4vr.pinepods` (`Entitlements/`). The project file is hand-authored with readable `AA…` object IDs; to add a target, follow the existing entries.
+All four app and extension targets carry the App Group `group.me.4vr.pinepods` (`Entitlements/`). The project file is hand-authored with readable `AA…` object IDs; to add a target, follow the existing entries.
 
 ## Upstream reference
 
@@ -54,6 +56,7 @@ The upstream PinePods repo is checked out next to this one at `../PinePods`:
 | `DownloadManager` | Episode files on the phone (`Application Support/Kural/Media`), fetched in a background `URLSession` (the app delegate forwards its relaunch events). The player prefers a local file over streaming. It also keeps the first N queue entries downloaded. |
 | `AutomationEngine` | User rules (`SettingsStore.automationRules`) run with no approval step: when the app becomes active if the interval has passed, from background app refresh (`BGTaskSchedulerPermittedIdentifiers`), or via Run Now. It gathers history, feed, queue and downloads, gets a plan from the pure `AutomationPlanner`, applies it with the bulk endpoints, and keeps an activity log. It gathers everything before acting, so an unreachable server means nothing changes. |
 | `WidgetPublisher` (app only) | On discrete changes (episode, play/pause, seek, queue, accent), writes `WidgetSnapshot` plus 300 px artwork thumbnails into the App Group and reloads the widget timeline. Widgets can't load remote images or reach app data, and they draw live progress from timer intervals, so nothing needs publishing mid-playback. |
+| `WatchBridge` (app only) | The phone side of the watch remote, over WatchConnectivity. It sends each `WidgetSnapshot` (with 80 px artwork) as application context, which is delivered even when the watch app is closed, plus a live message when reachable. It runs watch commands (`WatchProtocol.Command`: toggle, skip, play, remove, refresh) through `PlaybackBridge` and replies with fresh state. It's activated in `didFinishLaunching`, because a watch message can wake the app in the background. |
 | `SyncOutbox` | Durable, ordered queue of position and completion updates. Offline updates are sent when `NWPathMonitor` reports a connection or the app returns to the foreground. It also remembers the last position per episode, so resume uses the later of the server's and the device's position. |
 
 Stores reach each other through `.shared` (e.g. `LibraryStore` reads `SessionStore.shared`), not through injection.

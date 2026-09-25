@@ -19,6 +19,14 @@ enum WidgetPublisher {
     }
 
     private static func publish() async {
+        let snapshot = await makeSnapshot()
+        SharedContainer.save(snapshot)
+        pruneArtwork(keeping: Set(([snapshot.nowPlaying?.episode] + snapshot.upNext).compactMap { $0?.artworkFile }))
+        WidgetCenter.shared.reloadTimelines(ofKind: SharedContainer.widgetKind)
+        WatchBridge.shared.publish(snapshot)
+    }
+
+    static func makeSnapshot() async -> WidgetSnapshot {
         let player = AudioPlayerController.shared
         let settings = SettingsStore.shared
         var snapshot = WidgetSnapshot(
@@ -39,14 +47,12 @@ enum WidgetPublisher {
 
         let playingId = snapshot.nowPlaying?.episode.id
         for episode in LibraryStore.shared.queuedEpisodes
-            .filter({ $0.episodeId != playingId && !$0.isNearlyFinished }).prefix(4) {
+            .filter({ $0.episodeId != playingId && !$0.isNearlyFinished }).prefix(10) {
             snapshot.upNext.append(await widgetEpisode(
                 episode, duration: Double(episode.episodeDuration), position: Double(episode.savedPosition ?? 0)))
         }
 
-        SharedContainer.save(snapshot)
-        pruneArtwork(keeping: Set(([snapshot.nowPlaying?.episode] + snapshot.upNext).compactMap { $0?.artworkFile }))
-        WidgetCenter.shared.reloadTimelines(ofKind: SharedContainer.widgetKind)
+        return snapshot
     }
 
     private static func widgetEpisode(_ episode: PinepodsEpisode, duration: Double, position: Double) async -> WidgetSnapshot.Episode {

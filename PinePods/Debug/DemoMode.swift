@@ -56,7 +56,7 @@ enum DemoMode {
             var list: [PinepodsEpisode] = []
             for n in 0..<8 {
                 nextId += 1
-                let duration = media == nil ? [2700, 3900, 1800, 5400, 2400][(n + index) % 5] : 50
+                let duration = media == nil ? [2700, 3900, 1800, 5400, 2400][(n + index) % 5] : 600
                 let listened: Int? = media != nil ? nil : (n == 1 ? duration / 3 : (n == 4 ? duration : nil))
                 list.append(PinepodsEpisode.fromJSON([
                     "episodeid": nextId, "podcastid": podcastId, "podcastname": name,

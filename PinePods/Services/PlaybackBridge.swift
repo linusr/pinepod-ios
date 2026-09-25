@@ -1,6 +1,6 @@
 import Foundation
 
-/// Carries out widget button taps inside the app. After a cold launch nothing
+/// Carries out widget button taps and watch commands inside the app. After a cold launch nothing
 /// is loaded yet, so playback falls back to the last played episode, then Up Next.
 @MainActor
 enum PlaybackBridge {
@@ -21,6 +21,12 @@ enum PlaybackBridge {
         } else {
             player.rewind(milliseconds: -seconds * 1000)
         }
+    }
+
+    static func removeFromQueue(episodeId: Int) async {
+        let library = LibraryStore.shared
+        guard let episode = library.queuedEpisodes.first(where: { $0.episodeId == episodeId }) else { return }
+        await library.removeFromQueue(episode)
     }
 
     static func play(episodeId: Int) async {

@@ -7,6 +7,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         UIApplication.shared.beginReceivingRemoteControlEvents()
         AutomationEngine.registerBackgroundTask()
+        WatchBridge.shared.activate()
         return true
     }
 

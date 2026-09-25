@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AA000000000000000000003D /* KuralWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000030 /* KuralWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AA000000000000000000004B /* KuralWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000040 /* KuralWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AA000000000000000000005C /* KuralWatchWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000050 /* KuralWatchWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +27,20 @@
 			remoteGlobalIDString = AA0000000000000000000035;
 			remoteInfo = KuralWidgets;
 		};
+		AA000000000000000000004D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA000000000000000000000A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000000000000000000045;
+			remoteInfo = KuralWatch;
+		};
+		AA000000000000000000005E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA000000000000000000000A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000000000000000000055;
+			remoteInfo = KuralWatchWidgets;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,12 +55,36 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA000000000000000000004A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				AA000000000000000000004B /* KuralWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA000000000000000000005B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AA000000000000000000005C /* KuralWatchWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AA0000000000000000000001 /* PinePods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinePods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0000000000000000000020 /* PinePodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinePodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0000000000000000000030 /* KuralWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = KuralWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000040 /* KuralWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuralWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000050 /* KuralWatchWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = KuralWatchWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -61,6 +101,27 @@
 				Info.plist,
 			);
 			target = AA0000000000000000000035 /* KuralWidgets */;
+		};
+		AA0000000000000000000049 /* Exceptions for "Shared" folder in "KuralWatch" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				PlaybackIntents.swift,
+			);
+			target = AA0000000000000000000045 /* KuralWatch */;
+		};
+		AA0000000000000000000059 /* Exceptions for "KuralWatchWidgets" folder in "KuralWatchWidgets" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA0000000000000000000055 /* KuralWatchWidgets */;
+		};
+		AA000000000000000000005A /* Exceptions for "Shared" folder in "KuralWatchWidgets" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				PlaybackIntents.swift,
+			);
+			target = AA0000000000000000000055 /* KuralWatchWidgets */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -88,12 +149,29 @@
 		};
 		AA0000000000000000000032 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AA0000000000000000000049 /* Exceptions for "Shared" folder in "KuralWatch" target */,
+				AA000000000000000000005A /* Exceptions for "Shared" folder in "KuralWatchWidgets" target */,
+			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
 		AA000000000000000000003B /* Entitlements */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000041 /* KuralWatch */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KuralWatch;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000051 /* KuralWatchWidgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AA0000000000000000000059 /* Exceptions for "KuralWatchWidgets" folder in "KuralWatchWidgets" target */,
+			);
+			path = KuralWatchWidgets;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -114,6 +192,16 @@
 			files = (
 			);
 		};
+		AA0000000000000000000043 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		AA0000000000000000000053 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -123,6 +211,8 @@
 				AA0000000000000000000002 /* PinePods */,
 				AA0000000000000000000021 /* PinePodsTests */,
 				AA0000000000000000000031 /* KuralWidgets */,
+				AA0000000000000000000041 /* KuralWatch */,
+				AA0000000000000000000051 /* KuralWatchWidgets */,
 				AA0000000000000000000032 /* Shared */,
 				AA000000000000000000003B /* Entitlements */,
 				AA0000000000000000000005 /* Products */,
@@ -135,6 +225,8 @@
 				AA0000000000000000000001 /* PinePods.app */,
 				AA0000000000000000000020 /* PinePodsTests.xctest */,
 				AA0000000000000000000030 /* KuralWidgets.appex */,
+				AA0000000000000000000040 /* KuralWatch.app */,
+				AA0000000000000000000050 /* KuralWatchWidgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,11 +242,13 @@
 				AA0000000000000000000003 /* Frameworks */,
 				AA0000000000000000000009 /* Resources */,
 				AA000000000000000000003C /* Embed Foundation Extensions */,
+				AA000000000000000000004A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				AA000000000000000000003E /* PBXTargetDependency */,
+				AA000000000000000000004C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				AA0000000000000000000002 /* PinePods */,
@@ -207,6 +301,50 @@
 			productReference = AA0000000000000000000030 /* KuralWidgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		AA0000000000000000000045 /* KuralWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000000046 /* Build configuration list for PBXNativeTarget "KuralWatch" */;
+			buildPhases = (
+				AA0000000000000000000042 /* Sources */,
+				AA0000000000000000000043 /* Frameworks */,
+				AA0000000000000000000044 /* Resources */,
+				AA000000000000000000005B /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA000000000000000000005D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				AA0000000000000000000041 /* KuralWatch */,
+				AA0000000000000000000032 /* Shared */,
+			);
+			name = KuralWatch;
+			productName = KuralWatch;
+			productReference = AA0000000000000000000040 /* KuralWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA0000000000000000000055 /* KuralWatchWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000000056 /* Build configuration list for PBXNativeTarget "KuralWatchWidgets" */;
+			buildPhases = (
+				AA0000000000000000000052 /* Sources */,
+				AA0000000000000000000053 /* Frameworks */,
+				AA0000000000000000000054 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA0000000000000000000051 /* KuralWatchWidgets */,
+				AA0000000000000000000032 /* Shared */,
+			);
+			name = KuralWatchWidgets;
+			productName = KuralWatchWidgets;
+			productReference = AA0000000000000000000050 /* KuralWatchWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -225,6 +363,12 @@
 						TestTargetID = AA0000000000000000000006;
 					};
 					AA0000000000000000000035 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					AA0000000000000000000045 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					AA0000000000000000000055 = {
 						CreatedOnToolsVersion = 27.0;
 					};
 				};
@@ -246,6 +390,8 @@
 				AA0000000000000000000006 /* PinePods */,
 				AA0000000000000000000025 /* PinePodsTests */,
 				AA0000000000000000000035 /* KuralWidgets */,
+				AA0000000000000000000045 /* KuralWatch */,
+				AA0000000000000000000055 /* KuralWatchWidgets */,
 			);
 		};
 /* End PBXProject section */
@@ -262,6 +408,16 @@
 			);
 		};
 		AA0000000000000000000036 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		AA0000000000000000000044 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		AA0000000000000000000054 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -284,6 +440,16 @@
 			files = (
 			);
 		};
+		AA0000000000000000000042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		AA0000000000000000000052 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -296,6 +462,16 @@
 			isa = PBXTargetDependency;
 			target = AA0000000000000000000035 /* KuralWidgets */;
 			targetProxy = AA000000000000000000003F /* PBXContainerItemProxy */;
+		};
+		AA000000000000000000004C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000000000000000000045 /* KuralWatch */;
+			targetProxy = AA000000000000000000004D /* PBXContainerItemProxy */;
+		};
+		AA000000000000000000005D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000000000000000000055 /* KuralWatchWidgets */;
+			targetProxy = AA000000000000000000005E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -577,6 +753,118 @@
 			};
 			name = Release;
 		};
+		AA0000000000000000000047 /* Debug configuration for PBXNativeTarget "KuralWatch" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NDDPG5773;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Kural;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/KuralWatch.entitlements;
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.4vr.pinepods;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.watchkitapp;
+			};
+			name = Debug;
+		};
+		AA0000000000000000000048 /* Release configuration for PBXNativeTarget "KuralWatch" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NDDPG5773;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Kural;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/KuralWatch.entitlements;
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = me.4vr.pinepods;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.watchkitapp;
+			};
+			name = Release;
+		};
+		AA0000000000000000000057 /* Debug configuration for PBXNativeTarget "KuralWatchWidgets" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NDDPG5773;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Kural;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/KuralWatchWidgets.entitlements;
+				INFOPLIST_FILE = KuralWatchWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.watchkitapp.widgets;
+			};
+			name = Debug;
+		};
+		AA0000000000000000000058 /* Release configuration for PBXNativeTarget "KuralWatchWidgets" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NDDPG5773;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Kural;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 27.0;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/KuralWatchWidgets.entitlements;
+				INFOPLIST_FILE = KuralWatchWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.watchkitapp.widgets;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -610,6 +898,24 @@
 			buildConfigurations = (
 				AA0000000000000000000038 /* Debug configuration for PBXNativeTarget "KuralWidgets" */,
 				AA0000000000000000000039 /* Release configuration for PBXNativeTarget "KuralWidgets" */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000000046 /* Build configuration list for PBXNativeTarget "KuralWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000047 /* Debug configuration for PBXNativeTarget "KuralWatch" */,
+				AA0000000000000000000048 /* Release configuration for PBXNativeTarget "KuralWatch" */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000000056 /* Build configuration list for PBXNativeTarget "KuralWatchWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000057 /* Debug configuration for PBXNativeTarget "KuralWatchWidgets" */,
+				AA0000000000000000000058 /* Release configuration for PBXNativeTarget "KuralWatchWidgets" */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

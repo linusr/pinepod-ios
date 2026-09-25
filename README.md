@@ -35,6 +35,7 @@ Kural covers listening. Server administration, subscriptions, playlists and simi
 - Automation rules with an activity log
 - Ten accent colors, each with a matching app icon
 - Home Screen and Lock Screen widgets with play/pause, skip and Up Next
+- Apple Watch remote: control playback, browse and play Up Next, and a watch face complication
 
 ## Screenshots
 
