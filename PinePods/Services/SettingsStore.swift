@@ -18,6 +18,8 @@ final class SettingsStore {
         static let downloadOverCellular = "download_over_cellular"
         static let downloadLimitGB = "download_limit_gb"
         static let automationRules = "automation_rules"
+        static let accent = "accent_theme"
+        static let iconFollowsAccent = "icon_follows_accent"
     }
 
     private let defaults = UserDefaults.standard
@@ -50,6 +52,21 @@ final class SettingsStore {
         didSet { defaults.set(downloadLimitGB, forKey: Keys.downloadLimitGB) }
     }
 
+    var accent: AccentTheme {
+        didSet {
+            defaults.set(accent.rawValue, forKey: Keys.accent)
+            WidgetPublisher.setNeedsUpdate()
+            if iconFollowsAccent { AppIcon.apply(accent) }
+        }
+    }
+    /// Switch the Home Screen icon along with the accent.
+    var iconFollowsAccent: Bool {
+        didSet {
+            defaults.set(iconFollowsAccent, forKey: Keys.iconFollowsAccent)
+            if iconFollowsAccent { AppIcon.apply(accent) }
+        }
+    }
+
     var automationRules: AutomationRules {
         didSet {
             defaults.set(try? JSONEncoder().encode(automationRules), forKey: Keys.automationRules)
@@ -73,6 +90,8 @@ final class SettingsStore {
         keepQueuedDownloaded = defaults.object(forKey: Keys.keepQueuedDownloaded) as? Int ?? 3
         downloadOverCellular = defaults.bool(forKey: Keys.downloadOverCellular)
         downloadLimitGB = defaults.object(forKey: Keys.downloadLimitGB) as? Int ?? 5
+        accent = defaults.string(forKey: Keys.accent).flatMap(AccentTheme.init(rawValue:)) ?? .pine
+        iconFollowsAccent = defaults.object(forKey: Keys.iconFollowsAccent) as? Bool ?? true
         automationRules = defaults.data(forKey: Keys.automationRules)
             .flatMap { try? JSONDecoder().decode(AutomationRules.self, from: $0) } ?? AutomationRules()
     }

@@ -73,7 +73,7 @@ struct EpisodeRow: View {
             }
             if episode.saved {
                 Image(systemName: "bookmark.fill")
-                    .foregroundStyle(PineGreen)
+                    .foregroundStyle(Theme.accent)
                     .accessibilityLabel("Saved")
             }
             if let fraction = downloads.progress[episode.episodeId] {
@@ -82,7 +82,7 @@ struct EpisodeRow: View {
                     .accessibilityLabel("Downloading to iPhone")
             } else if downloads.isDownloaded(episode.episodeId) {
                 Image(systemName: "arrow.down.circle.fill")
-                    .foregroundStyle(PineGreen)
+                    .foregroundStyle(Theme.accent)
                     .accessibilityLabel("On iPhone")
             }
             if episode.downloaded {
@@ -180,13 +180,13 @@ struct EpisodeDetailView: View {
                                 .font(.caption.weight(.bold))
                         }
                         .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(PineGreen)
+                        .foregroundStyle(Theme.accent)
                     }
                     .buttonStyle(.plain)
                 } else {
                     Text(episode.podcastName)
                         .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(PineGreen)
+                        .foregroundStyle(Theme.accent)
                 }
 
                 Text(episode.episodeTitle)
@@ -218,7 +218,7 @@ struct EpisodeDetailView: View {
                     .padding(.vertical, 6)
             }
             .buttonStyle(.glassProminent)
-            .tint(PineGreen)
+            .tint(Theme.accent)
             .controlSize(.large)
             .sensoryFeedback(.impact(weight: .medium), trigger: isPlaying)
 
@@ -226,7 +226,7 @@ struct EpisodeDetailView: View {
                 HStack(spacing: 10) {
                     ProgressCapsule(fraction: fraction)
                         .frame(height: 4)
-                        .foregroundStyle(PineGreen)
+                        .foregroundStyle(Theme.accent)
                     Text(remainingLabel)
                         .font(.caption.weight(.medium).monospacedDigit())
                         .foregroundStyle(.secondary)
@@ -335,7 +335,7 @@ struct EpisodeDetailView: View {
                         DownloadRing(fraction: fraction)
                         Image(systemName: "stop.fill")
                             .font(.system(size: 9, weight: .bold))
-                            .foregroundStyle(PineGreen)
+                            .foregroundStyle(Theme.accent)
                     }
                     .frame(width: 30, height: 30)
                 }
@@ -381,7 +381,7 @@ struct EpisodeDetailView: View {
             } label: {
                 Image(systemName: icon)
                     .font(.title3)
-                    .foregroundStyle(active ? PineGreen : .primary)
+                    .foregroundStyle(active ? Theme.accent : .primary)
                     .contentTransition(.symbolEffect(.replace))
                     .frame(width: 30, height: 30)
             }

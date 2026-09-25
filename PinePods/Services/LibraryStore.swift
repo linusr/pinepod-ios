@@ -363,6 +363,7 @@ final class LibraryStore {
 
     private func queueDidChange() {
         LocalFiles.save(queuedEpisodes, to: Self.queueFileName)
+        WidgetPublisher.setNeedsUpdate()
         DownloadManager.shared.syncQueueDownloads(queuedEpisodes)
     }
 

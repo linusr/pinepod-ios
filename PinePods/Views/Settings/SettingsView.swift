@@ -22,7 +22,7 @@ struct SettingsView: View {
                             .frame(width: 56, height: 56)
                             .background(
                                 LinearGradient(
-                                    colors: [PineGreen.opacity(0.7), PineGreen],
+                                    colors: [Theme.accent.opacity(0.7), Theme.accent],
                                     startPoint: .topLeading, endPoint: .bottomTrailing),
                                 in: Circle())
                         VStack(alignment: .leading, spacing: 2) {
@@ -97,6 +97,21 @@ struct SettingsView: View {
                     Text("Playback")
                 } footer: {
                     Text("Skip Silence speeds through pauses of about two seconds or more. It works with regular podcast files, not live streams.")
+                }
+
+                Section {
+                    NavigationLink {
+                        AppearanceView()
+                    } label: {
+                        LabeledContent {
+                            HStack(spacing: 6) {
+                                Circle().fill(Theme.accent).frame(width: 12, height: 12)
+                                Text(settings.accent.name)
+                            }
+                        } label: {
+                            Label("Appearance", systemImage: "paintpalette")
+                        }
+                    }
                 }
 
                 Section {

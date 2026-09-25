@@ -47,7 +47,7 @@ struct ArtworkPlaceholder: View {
         GeometryReader { geo in
             ZStack {
                 LinearGradient(
-                    colors: [PineGreen.opacity(0.55), PineGreen],
+                    colors: [Theme.accent.opacity(0.55), Theme.accent],
                     startPoint: .topLeading, endPoint: .bottomTrailing)
                 Image(systemName: "waveform")
                     .resizable()
@@ -84,7 +84,7 @@ struct ArtworkBackdrop: View {
     }
 
     var body: some View {
-        let base = tint ?? PineGreen.mix(with: .black, by: 0.35)
+        let base = tint ?? Theme.accent.mix(with: .black, by: 0.35)
         Group {
             switch style {
             case .header:
@@ -155,9 +155,9 @@ struct EpisodePlayButton: View {
             .font(.caption.weight(.semibold).monospacedDigit())
             .padding(.horizontal, 11)
             .padding(.vertical, 6)
-            .foregroundStyle(style == .tinted ? PineGreen : .white)
+            .foregroundStyle(style == .tinted ? Theme.accent : .white)
             .background(
-                style == .tinted ? PineGreen.opacity(0.14) : .white.opacity(0.22),
+                style == .tinted ? Theme.accent.opacity(0.14) : .white.opacity(0.22),
                 in: Capsule())
         }
         .buttonStyle(PressableButtonStyle())
@@ -293,7 +293,7 @@ struct EpisodeActionsModifier: ViewModifier {
                             episode.saved ? "Unsave" : "Save",
                             systemImage: episode.saved ? "bookmark.slash.fill" : "bookmark.fill")
                     }
-                    .tint(PineGreen)
+                    .tint(Theme.accent)
                 }
             }
             .swipeActions(edge: .trailing) {
@@ -327,7 +327,7 @@ struct DownloadRing: View {
             Circle().stroke(.secondary.opacity(0.25), lineWidth: 2)
             Circle()
                 .trim(from: 0, to: max(fraction, 0.03))
-                .stroke(PineGreen, style: StrokeStyle(lineWidth: 2, lineCap: .round))
+                .stroke(Theme.accent, style: StrokeStyle(lineWidth: 2, lineCap: .round))
                 .rotationEffect(.degrees(-90))
                 .animation(.easeOut, value: fraction)
         }

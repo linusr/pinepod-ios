@@ -33,6 +33,8 @@ Kural covers listening. Server administration, subscriptions, playlists and simi
 - Skip Silence (speeds through long pauses)
 - Resumes after phone calls and other interruptions
 - Automation rules with an activity log
+- Ten accent colors, each with a matching app icon
+- Home Screen and Lock Screen widgets with play/pause, skip and Up Next
 
 ## Screenshots
 

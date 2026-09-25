@@ -56,7 +56,7 @@ struct LoginView: View {
                 .foregroundStyle(.white)
                 .padding(14)
                 .frame(width: 96, height: 96)
-                .glassEffect(.regular.tint(PineGreen.opacity(0.5)), in: RoundedRectangle(cornerRadius: 28, style: .continuous))
+                .glassEffect(.regular.tint(Theme.accent.opacity(0.5)), in: RoundedRectangle(cornerRadius: 28, style: .continuous))
 
             VStack(spacing: 6) {
                 HStack(alignment: .firstTextBaseline, spacing: 10) {
@@ -123,7 +123,7 @@ struct LoginView: View {
                 .padding(.vertical, 6)
             }
             .buttonStyle(.glassProminent)
-            .tint(PineGreen)
+            .tint(Theme.accent)
             .controlSize(.large)
             .disabled(!canSubmit || isLoggingIn)
             .padding(.top, 4)
@@ -161,7 +161,7 @@ struct LoginView: View {
         HStack(spacing: 12) {
             Image(systemName: icon)
                 .font(.body.weight(.medium))
-                .foregroundStyle(focus == field ? PineGreen : .white.opacity(0.55))
+                .foregroundStyle(focus == field ? Theme.accent : .white.opacity(0.55))
                 .frame(width: 22)
             Group {
                 if isSecure {
@@ -181,7 +181,7 @@ struct LoginView: View {
         .background(.white.opacity(focus == field ? 0.14 : 0.08), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .strokeBorder(focus == field ? PineGreen.opacity(0.8) : .white.opacity(0.1), lineWidth: 1)
+                .strokeBorder(focus == field ? Theme.accent.opacity(0.8) : .white.opacity(0.1), lineWidth: 1)
         }
         .animation(.easeOut(duration: 0.15), value: focus)
     }
@@ -249,9 +249,10 @@ struct LoginView: View {
     }
 }
 
-/// Slowly drifting pine-toned mesh gradient.
+/// Slowly drifting mesh gradient in shades of the accent color.
 private struct LoginBackground: View {
     var body: some View {
+        let accent = Theme.accent
         TimelineView(.animation(minimumInterval: 1 / 30)) { context in
             let t = context.date.timeIntervalSinceReferenceDate
             let drift = Float(sin(t * 0.25)) * 0.12
@@ -264,9 +265,9 @@ private struct LoginBackground: View {
                     [0, 1], [0.5 - sway, 1], [1, 1],
                 ],
                 colors: [
-                    Color(red: 0.05, green: 0.16, blue: 0.14), Color(red: 0.12, green: 0.32, blue: 0.27), Color(red: 0.04, green: 0.12, blue: 0.13),
-                    Color(red: 0.18, green: 0.42, blue: 0.36), PineGreen, Color(red: 0.10, green: 0.27, blue: 0.30),
-                    Color(red: 0.03, green: 0.08, blue: 0.08), Color(red: 0.08, green: 0.22, blue: 0.19), Color(red: 0.02, green: 0.06, blue: 0.07),
+                    accent.mix(with: .black, by: 0.85), accent.mix(with: .black, by: 0.55), accent.mix(with: .black, by: 0.88),
+                    accent.mix(with: .black, by: 0.35), accent, accent.mix(with: .black, by: 0.6),
+                    accent.mix(with: .black, by: 0.93), accent.mix(with: .black, by: 0.7), accent.mix(with: .black, by: 0.95),
                 ])
         }
     }

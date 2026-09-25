@@ -157,7 +157,7 @@ struct DownloadsView: View {
                 DownloadRing(fraction: fraction)
                 Image(systemName: "arrow.down")
                     .font(.caption.weight(.bold))
-                    .foregroundStyle(PineGreen)
+                    .foregroundStyle(Theme.accent)
             }
             .frame(width: 36, height: 36)
 

@@ -6,6 +6,10 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AA000000000000000000003D /* KuralWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA0000000000000000000030 /* KuralWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		AA000000000000000000002A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -14,11 +18,33 @@
 			remoteGlobalIDString = AA0000000000000000000006;
 			remoteInfo = PinePods;
 		};
+		AA000000000000000000003F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA000000000000000000000A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000000000000000000035;
+			remoteInfo = KuralWidgets;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA000000000000000000003C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AA000000000000000000003D /* KuralWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AA0000000000000000000001 /* PinePods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinePods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0000000000000000000020 /* PinePodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinePodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000000030 /* KuralWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = KuralWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -28,6 +54,13 @@
 				Info.plist,
 			);
 			target = AA0000000000000000000006 /* PinePods */;
+		};
+		AA000000000000000000003A /* Exceptions for "KuralWidgets" folder in "KuralWidgets" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AA0000000000000000000035 /* KuralWidgets */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -45,6 +78,24 @@
 			path = PinePodsTests;
 			sourceTree = "<group>";
 		};
+		AA0000000000000000000031 /* KuralWidgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AA000000000000000000003A /* Exceptions for "KuralWidgets" folder in "KuralWidgets" target */,
+			);
+			path = KuralWidgets;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000032 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000003B /* Entitlements */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +109,11 @@
 			files = (
 			);
 		};
+		AA0000000000000000000034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,6 +122,9 @@
 			children = (
 				AA0000000000000000000002 /* PinePods */,
 				AA0000000000000000000021 /* PinePodsTests */,
+				AA0000000000000000000031 /* KuralWidgets */,
+				AA0000000000000000000032 /* Shared */,
+				AA000000000000000000003B /* Entitlements */,
 				AA0000000000000000000005 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +134,7 @@
 			children = (
 				AA0000000000000000000001 /* PinePods.app */,
 				AA0000000000000000000020 /* PinePodsTests.xctest */,
+				AA0000000000000000000030 /* KuralWidgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,11 +149,16 @@
 				AA0000000000000000000008 /* Sources */,
 				AA0000000000000000000003 /* Frameworks */,
 				AA0000000000000000000009 /* Resources */,
+				AA000000000000000000003C /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
+			dependencies = (
+				AA000000000000000000003E /* PBXTargetDependency */,
+			);
 			fileSystemSynchronizedGroups = (
 				AA0000000000000000000002 /* PinePods */,
+				AA0000000000000000000032 /* Shared */,
 			);
 			name = PinePods;
 			productName = PinePods;
@@ -121,6 +186,27 @@
 			productReference = AA0000000000000000000020 /* PinePodsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		AA0000000000000000000035 /* KuralWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000000037 /* Build configuration list for PBXNativeTarget "KuralWidgets" */;
+			buildPhases = (
+				AA0000000000000000000033 /* Sources */,
+				AA0000000000000000000034 /* Frameworks */,
+				AA0000000000000000000036 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA0000000000000000000031 /* KuralWidgets */,
+				AA0000000000000000000032 /* Shared */,
+			);
+			name = KuralWidgets;
+			productName = KuralWidgets;
+			productReference = AA0000000000000000000030 /* KuralWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -137,6 +223,9 @@
 					AA0000000000000000000025 = {
 						CreatedOnToolsVersion = 27.0;
 						TestTargetID = AA0000000000000000000006;
+					};
+					AA0000000000000000000035 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
@@ -156,6 +245,7 @@
 			targets = (
 				AA0000000000000000000006 /* PinePods */,
 				AA0000000000000000000025 /* PinePodsTests */,
+				AA0000000000000000000035 /* KuralWidgets */,
 			);
 		};
 /* End PBXProject section */
@@ -167,6 +257,11 @@
 			);
 		};
 		AA0000000000000000000024 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		AA0000000000000000000036 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -184,6 +279,11 @@
 			files = (
 			);
 		};
+		AA0000000000000000000033 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -191,6 +291,11 @@
 			isa = PBXTargetDependency;
 			target = AA0000000000000000000006 /* PinePods */;
 			targetProxy = AA000000000000000000002A /* PBXContainerItemProxy */;
+		};
+		AA000000000000000000003E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000000000000000000035 /* KuralWidgets */;
+			targetProxy = AA000000000000000000003F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -322,6 +427,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/Kural.entitlements;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) KURAL_APP";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -351,6 +459,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Entitlements/Kural.entitlements;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) KURAL_APP";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -414,6 +525,58 @@
 			};
 			name = Release;
 		};
+		AA0000000000000000000038 /* Debug configuration for PBXNativeTarget "KuralWidgets" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Entitlements/KuralWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NDDPG5773;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KuralWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Kural;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA0000000000000000000039 /* Release configuration for PBXNativeTarget "KuralWidgets" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Entitlements/KuralWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2NDDPG5773;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KuralWidgets/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Kural;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.4vr.pinepods.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -438,6 +601,15 @@
 			buildConfigurations = (
 				AA0000000000000000000028 /* Debug configuration for PBXNativeTarget "PinePodsTests" */,
 				AA0000000000000000000029 /* Release configuration for PBXNativeTarget "PinePodsTests" */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000000037 /* Build configuration list for PBXNativeTarget "KuralWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000000000000000000038 /* Debug configuration for PBXNativeTarget "KuralWidgets" */,
+				AA0000000000000000000039 /* Release configuration for PBXNativeTarget "KuralWidgets" */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

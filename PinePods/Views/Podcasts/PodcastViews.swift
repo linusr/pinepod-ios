@@ -228,7 +228,7 @@ struct PodcastDetailView: View {
                 if let author = podcast?.author, !author.isEmpty {
                     Text(author)
                         .font(.subheadline.weight(.medium))
-                        .foregroundStyle(PineGreen)
+                        .foregroundStyle(Theme.accent)
                 }
                 Text(metaLine)
                     .font(.caption)
@@ -246,7 +246,7 @@ struct PodcastDetailView: View {
                         .padding(.vertical, 4)
                 }
                 .buttonStyle(.glassProminent)
-                .tint(PineGreen)
+                .tint(Theme.accent)
                 .controlSize(.large)
             }
 

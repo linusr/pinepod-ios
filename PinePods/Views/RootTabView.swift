@@ -74,7 +74,7 @@ struct AccountButton: View {
                 .frame(width: 32, height: 32)
                 .background(
                     LinearGradient(
-                        colors: [PineGreen.opacity(0.7), PineGreen],
+                        colors: [Theme.accent.opacity(0.7), Theme.accent],
                         startPoint: .topLeading, endPoint: .bottomTrailing),
                     in: Circle())
         }

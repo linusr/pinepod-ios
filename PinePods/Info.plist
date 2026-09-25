@@ -6,6 +6,17 @@
 	<array>
 		<string>me.4vr.pinepods.automation</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>me.4vr.pinepods</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kural</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

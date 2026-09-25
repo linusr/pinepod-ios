@@ -13,8 +13,23 @@ import UIKit
 final class AudioPlayerController {
     static let shared = AudioPlayerController()
 
-    private(set) var currentEpisode: PinepodsEpisode?
-    private(set) var isPlaying = false
+    private(set) var currentEpisode: PinepodsEpisode? {
+        didSet {
+            guard oldValue?.episodeId != currentEpisode?.episodeId else { return }
+            if let currentEpisode {
+                lastEpisode = currentEpisode
+                LocalFiles.save(currentEpisode, to: Self.lastEpisodeFileName)
+            }
+            WidgetPublisher.setNeedsUpdate()
+        }
+    }
+    private(set) var isPlaying = false {
+        didSet { if oldValue != isPlaying { WidgetPublisher.setNeedsUpdate() } }
+    }
+    /// The most recent episode, kept across launches so widgets and remote
+    /// controls can resume it before anything is loaded.
+    private(set) var lastEpisode: PinepodsEpisode? = LocalFiles.load(PinepodsEpisode.self, from: lastEpisodeFileName)
+    private static let lastEpisodeFileName = "last-episode.json"
     private(set) var isBuffering = false
     private(set) var positionSeconds: Double = 0
     private(set) var durationSeconds: Double = 0
@@ -474,6 +489,7 @@ final class AudioPlayerController {
         player?.seek(to: time, toleranceBefore: .zero, toleranceAfter: .zero)
         positionSeconds = clamped
         didComplete = false
+        WidgetPublisher.setNeedsUpdate()
         // Pending transitions refer to the old position; the tap re-reports from the new one.
         cancelPendingSilenceTransition()
         silenceBoostActive = silenceReported

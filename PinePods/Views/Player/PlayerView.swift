@@ -387,7 +387,7 @@ struct RoutePickerButton: UIViewRepresentable {
     func makeUIView(context: Context) -> AVRoutePickerView {
         let view = AVRoutePickerView()
         view.tintColor = .white
-        view.activeTintColor = UIColor(PineGreen)
+        view.activeTintColor = UIColor(Theme.accent)
         view.prioritizesVideoDevices = false
         return view
     }

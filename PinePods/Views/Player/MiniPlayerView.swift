@@ -36,7 +36,7 @@ struct MiniPlayerView: View {
                             .stroke(.secondary.opacity(0.3), lineWidth: 2.5)
                         Circle()
                             .trim(from: 0, to: progressFraction)
-                            .stroke(PineGreen, style: StrokeStyle(lineWidth: 2.5, lineCap: .round))
+                            .stroke(Theme.accent, style: StrokeStyle(lineWidth: 2.5, lineCap: .round))
                             .rotationEffect(.degrees(-90))
                         if player.isBuffering && !player.isPlaying {
                             ProgressView().controlSize(.mini)

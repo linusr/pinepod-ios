@@ -79,3 +79,36 @@ struct SyncOutboxActionTests {
         #expect(decoded.map(\.episodeId) == [1, 3])
     }
 }
+
+@Suite("Appearance")
+struct AccentThemeTests {
+    @Test func pineUsesThePrimaryIconAndOthersHaveAlternates() {
+        #expect(AccentTheme.pine.iconName == nil)
+        #expect(AccentTheme.ocean.iconName == "AppIcon-Ocean")
+        let names = AccentTheme.allCases.compactMap(\.iconName)
+        #expect(names.count == AccentTheme.allCases.count - 1)
+        #expect(Set(names).count == names.count)
+    }
+
+    @Test func accentsAreDistinct() {
+        #expect(Set(AccentTheme.allCases.map(\.hex)).count == AccentTheme.allCases.count)
+        #expect(Set(AccentTheme.allCases.map(\.name)).count == AccentTheme.allCases.count)
+    }
+}
+
+@Suite("Widget snapshot")
+struct WidgetSnapshotTests {
+    @Test func roundTripsThroughJSON() throws {
+        let episode = WidgetSnapshot.Episode(
+            id: 7, title: "Title", podcast: "Show", artworkFile: "7.jpg", duration: 3600, position: 120)
+        let snapshot = WidgetSnapshot(
+            nowPlaying: .init(episode: episode, isPlaying: true, speed: 1.5, capturedAt: Date(timeIntervalSince1970: 1_000)),
+            upNext: [episode], accentHex: AccentTheme.teal.hex, skipBackSeconds: 15, skipForwardSeconds: 45)
+        let decoded = try JSONDecoder().decode(WidgetSnapshot.self, from: JSONEncoder().encode(snapshot))
+        #expect(decoded.nowPlaying?.episode == episode)
+        #expect(decoded.nowPlaying?.speed == 1.5)
+        #expect(decoded.upNext == [episode])
+        #expect(decoded.accentHex == AccentTheme.teal.hex)
+        #expect(decoded.skipForwardSeconds == 45)
+    }
+}

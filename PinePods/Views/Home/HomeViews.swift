@@ -222,7 +222,7 @@ private struct StatsStrip: View {
                 NavigationLink {
                     SavedEpisodesView()
                 } label: {
-                    tile(value: "\(overview.savedCount)", label: "Saved", icon: "bookmark.fill", tint: PineGreen, tappable: true)
+                    tile(value: "\(overview.savedCount)", label: "Saved", icon: "bookmark.fill", tint: Theme.accent, tappable: true)
                 }
                 .buttonStyle(PressableButtonStyle(scale: 0.96))
 
